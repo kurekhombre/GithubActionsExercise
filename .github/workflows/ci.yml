@@ -33,11 +33,15 @@ jobs:
       # Step 4: Run Ruff for static code analysis.
       - name: Run Ruff (static analysis)
         run: |
-          pip install ruff
           ruff check .
 
       # Step 5: Run unit tests using pytest.
       - name: Run unit tests
         run: |
-          pip install pytest
           pytest
+
+      # Step 6: Run coverage and ensure 100% test coverage.
+      - name: Check test coverage
+        run: |
+          coverage run -m pytest
+          coverage report --fail-under=90
