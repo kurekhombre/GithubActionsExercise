@@ -1,6 +1,6 @@
 name: CI Pipeline
 
-# The workflow is triggered whenever code is pushed to the repository or a pull request is created.
+# The workflow is triggered whenever code is pushed to the repository.
 on:
   push:
     branches:
@@ -40,7 +40,7 @@ jobs:
         run: |
           pytest
 
-      # Step 6: Run coverage and ensure 100% test coverage.
+      # Step 6: Run coverage and ensure 90% test coverage.
       - name: Check test coverage
         run: |
           coverage run -m pytest
